@@ -17,9 +17,11 @@ const forecast=(latitude,longitude,location,callback)=>{
     }
     else
     {
+        
         callback('undefined',{
-            forecast:response.body.currently.temperature,
+            forecast:response.body.daily.data[0].summary +'It is currently '+response.body.currently.temperature +' degress out.This High today is '+response.body.daily.data[0].temperatureHigh+' with a low off '+response.body.daily.data[0].temperatureLow + '. There is a '+response.body.currently.precipProbability+ ' percent chance of rain.',
             location:location
+           
         });
 
     }
