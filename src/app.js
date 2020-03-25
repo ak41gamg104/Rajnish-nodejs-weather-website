@@ -8,6 +8,7 @@ const forecast=require('./utils/forecast')
 
 
 const app=express();
+const port=process.env.PORT || 3000
 app.use(bodyParser.json())
 
 //define path for express config
@@ -58,9 +59,9 @@ app.get('/weather',(req,res)=>{
         })
     }
    var add=req.query.address;
-   console.log(add)
+  // console.log(add)
     geocode(add,(error,data)=>{
-        console.log('Error', error)
+       // console.log('Error', error)
         if(error)
         {
             return res.send({ error})
@@ -72,7 +73,7 @@ app.get('/weather',(req,res)=>{
             {
                 return res.send({ error})
             }  */ 
-            console.log(forecastdata)
+           // console.log(forecastdata)
            res.send({
                forecast:forecastdata.forecast,
                location:forecastdata.location,
@@ -128,6 +129,6 @@ app.get('*',(req,res)=>{
 
 
  
-app.listen(3000,()=>{
-    console.log("Server Started at port 3000")
+app.listen(port,()=>{
+    console.log("Server Started at port "+port)
 });
