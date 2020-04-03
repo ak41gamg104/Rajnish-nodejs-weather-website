@@ -9,7 +9,7 @@ body{
     min-height: 100vh;
 }
 footer{
-    color: chartreuse;
+    color: red;
     border-top: 1px solid #eeeeee;
     margin-top: 16px;
     padding: 16px 0;
